@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="{{ url_for('teacher_profile', username=username) }}">Trở về trang chính</a>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Video Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="video">Select Video:</label>
+        <input type="file" id="video" name="video" accept=".mp4,.avi,.mov" required>
+
+        <label for="tag">Select Tags:</label> <!-- Use 'tag' as the name attribute -->
+        <select id="tag" name="tag" multiple> <!-- Use 'tag' as the name attribute -->
+            {% for tag in tags %}
+                <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Upload Video</button>
+    </form>
+</body>
+</html>

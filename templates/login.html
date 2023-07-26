@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang chủ</title>
+</head>
+<body>
+    <h1>Trang chủ</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST" action="/login">
+        <label for="username_or_email">Tên đăng nhập hoặc Email:</label>
+        <input type="text" id="username_or_email" name="username_or_email" required><br>
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required><br>
+        <select id="role" name="role">
+            <option value="hocvien">Học viên</option>
+            <option value="giaovien">Giáo viên</option>
+        </select><br>
+        <input type="submit" value="Đăng nhập">
+    </form>
+    <br>
+    <a href="/register">chưa có tài khoản</a>
+</body>
+</html>

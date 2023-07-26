@@ -1,0 +1,33 @@
+<!-- select_tags.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Tags</title>
+</head>
+<body>
+    <h1>Select Tags</h1>
+    <form method="POST" action="{{ url_for('select_tags', username=user.username) }}">
+        {% for tag in tags %}
+            <label>
+                <input type="checkbox" name="tags" value="{{ tag }}" {% if tag in current_tags %} checked {% endif %}>
+                {{ tag }}
+            </label><br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // JavaScript code to check checkboxes matching current_tags
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTags = {{ current_tags|tojson }};
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                if (currentTags.includes(checkbox.value)) {
+                    checkbox.checked = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang cá nhân</title>
+</head>
+<body>
+    <h1>Chào mừng {{ username }} đến với trang cá nhân!</h1>
+    <a href="{{ url_for('select_tags', username=username) }}">Thay đổi thẻ</a>
+    <h2>Các thẻ tag đã chọn:</h2>
+    <ul>
+        {% for tag in tags %}
+            <li>{{ tag }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Nội dung liên quan:</h2>
+    <ul>
+        {% for content in related_content %}
+        <li>
+            <h3>{{ content.title }}</h3>
+            <p>{{ content.body }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

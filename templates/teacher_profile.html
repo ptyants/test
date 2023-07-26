@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="{{ url_for('upload_video', username=username) }}">Tạo video mới</a>
+    {% for course in courses %}
+        <h3>{{ course.title }}</h3>
+        <p>Video URL: {{ course.video_url }}</p>
+        <!-- Embed the video using an iframe to display play and stop controls -->
+        <iframe width="320" height="240" src="{{ course.video_url }}" frameborder="0" allowfullscreen></iframe>
+        <p>Tags: {{ course.tag }}</p>
+        <!-- Các thẻ tag sẽ được hiển thị dưới dạng danh sách -->
+        <ul>
+            {% for tag in course.tag.split(',') %}
+                <li>{{ tag }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="{{ url_for('upload_video', username=username) }}">Tạo video mới</a>
+    {% for course in courses %}
+        <h3>{{ course.title }}</h3>
+        <p>Video URL: {{ course.video_url }}</p>-->
+        <!-- Hiển thị video đã tải lên bằng cách tạo thẻ video HTML -->
+  <!--     <video width="320" height="240" controls>
+            <source src="{{ url_for('upload_video', username=username, filename=course.video_filename) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Tags: {{ course.tag }}</p>-->
+        <!-- Các thẻ tag sẽ được hiển thị dưới dạng danh sách -->
+        <!--<ul>
+            {% for tag in course.tag.split(',') %}
+                <li>{{ tag }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+</body>
+</html>--> 

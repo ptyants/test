@@ -1,0 +1,21 @@
+<h1>Teacher Videos</h1>
+{% for video in teachers_videos %}
+    <p>{{ video.title }} - {{ video.description }}</p>
+    <!-- Add a delete button for each video -->
+    <form method="post" action="{{ url_for('admin_sys') }}">
+        <input type="hidden" name="video_id" value="{{ video.id }}">
+        <input type="submit" value="Delete">
+    </form>
+{% endfor %}
+
+<hr>
+
+<h1>General Content</h1>
+{% for content in general_content %}
+    <p>{{ content.title }} - {{ content.body }}</p>
+    <!-- Add a delete button for each content -->
+    <form method="post" action="{{ url_for('admin_sys') }}">
+        <input type="hidden" name="fact_id" value="{{ content.id }}">
+        <input type="submit" value="Delete">
+    </form>
+{% endfor %}
